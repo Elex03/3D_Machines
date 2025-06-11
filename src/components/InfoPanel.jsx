@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useInfoStore } from "../utils/useInfoShow";
 
 const paragraph = {
-  Procesador : "Esta en una prueba",
+  Procesador : "Hello universe",
 }
+
+
 export default function InfoPanel() {
   const currentLabel = useInfoStore((state) => state.currentLabel);
 
@@ -29,14 +31,23 @@ export default function InfoPanel() {
 }
 
 function speakLabel(currentLabel) {
-  if (currentLabel) {
+  console.log(currentLabel)
 
-    const utterance = new SpeechSynthesisUtterance(paragraph[`${'Procesador'}`])
+  if (currentLabel) {
+    
+    window.speechSynthesis.cancel()
+    window.speechSynthesis.speak(utteranceSetting())
+  }
+}
+
+const utteranceSetting = () => {
+
+ const utterance = new SpeechSynthesisUtterance(paragraph[`${'Procesador'}`])
     utterance.lang = 'es-EN'
 
     utterance.pitch = 0.5
     utterance.rate = 1   
-    utterance.volume = 1       // volumen completo
+    utterance.volume = 1  
 
     const voices = window.speechSynthesis.getVoices()
     const robotVoice = voices.find(v =>
@@ -45,8 +56,5 @@ function speakLabel(currentLabel) {
     if (robotVoice) {
       utterance.voice = robotVoice
     }
-
-    window.speechSynthesis.cancel()
-    window.speechSynthesis.speak(utterance)
-  }
+  return utterance;
 }
