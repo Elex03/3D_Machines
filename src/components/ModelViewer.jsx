@@ -8,7 +8,7 @@ import { labels } from "../constants/constants";
 function ModelViewer  ({modelName = "model.glb", })  {
   return (
     <Canvas camera={{ position: [0, 10, 0] }} style={{}}>
-      <ambientLight />
+      <ambientLight intensity ={15}/>
       <directionalLight position={[5, 5, 5]} />
       <ModelWithLabels modelName={modelName} />
       <OrbitControls />
