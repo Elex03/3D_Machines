@@ -1,4 +1,3 @@
-import React from "react";
 import ModelViewer from "../components/ModelViewer";
 import { ModelAnimatedViewer } from "../components/ModelAnimatedViewer";
 import InfoPanel from "../components/InfoPanel";
