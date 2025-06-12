@@ -4,16 +4,14 @@ import InfoPanel from "../components/InfoPanel";
 import { Layout } from "../components/layout/Layout";
 import Speaker from "../assets/Speaker.svg";
 import No_Audio from "../assets/No_Audio.svg";
-import { useState } from "react";
+import useAudioStore from "../utils/audioStore";
 
 
 export const ComponentsDetails = () => {
 
-  const [isActive, setIsActive] = useState(true);
+  const { isAudioOn, toggleAudio } = useAudioStore();
 
-  const handleClick = () => {
-    setIsActive(!isActive);
-  }
+
   return (
     <Layout>
       <div
@@ -25,7 +23,7 @@ export const ComponentsDetails = () => {
         }}
       >
         <button
-          onClick={handleClick}
+          onClick={toggleAudio}
           style={{
             background: 'transparent',
             border: 'none',
@@ -38,9 +36,9 @@ export const ComponentsDetails = () => {
           }}
         >
           <img
-            src={isActive ? Speaker : No_Audio}
+            src={isAudioOn ? Speaker : No_Audio}
             style={{ width: '25px', height: '25px', position: 'relative', left: '2rem' }}
-            alt="Audio Toggle"
+            alt={isAudioOn ? 'Audio activado' : 'Audio desactivado'}
           />
         </button>
         <ModelViewer modelName="model.glb" />
