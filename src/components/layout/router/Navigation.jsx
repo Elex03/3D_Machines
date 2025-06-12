@@ -4,7 +4,7 @@ import { ComponentsDetails } from "../../../pages/ComponentsDetails"
 import '../../../App.css';
 //pages de nav
 import { Conocer } from "../../../pages/Conocer";
-
+import {Inicio} from "../../../pages/Inicio";
 
 export const Navigation = () => {
   return (
@@ -53,10 +53,12 @@ export const Navigation = () => {
       </nav>
 
       <Routes>
-        <Route path='/' element={<ComponentsDetails />} />
+        <Route path='/' element={<Inicio />} />
         <Route path='/conocer' element={<Conocer />} />
         <Route path='/aprendiendo' element={<h1>Soy</h1>} />
         <Route path='/recomendaciones' element={<h1>Tongo</h1>} />
+        <Route path="/tarjetamadre" element={<ComponentsDetails />} />
+
       </Routes>
     </BrowserRouter>
 

@@ -1,6 +1,7 @@
 
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 //css
 import '../styles/conocerComponents.css';
 //iconos
@@ -20,21 +21,26 @@ import SettingsSystemDaydreamIcon from '@mui/icons-material/SettingsSystemDaydre
 
 export const Conocer = () => {
     const [seleccion, setSeleccion] = useState('componentes');
+    const navigate = useNavigate();
     const [seleccionado, setSeleccionado] = useState(null);
 
 
     //iconos comp
     const iconComponents = [
-        { icon: <MemoryIcon />, label: 'Memoria RAM' },
-        { icon: <StorageIcon />, label: 'Almacenamiento' },
-        { icon: <DeveloperBoardIcon />, label: ' Tarjeta Madre' },
-        { icon: <PowerIcon />, label: 'Fuente de Poder' },
-        { icon: <AccountTreeIcon />, label: 'Tarjeta Grafica' },
-        { icon: <DnsIcon/>, label: 'CPU' },
-        { icon: <AcUnitIcon/>, label: 'Refrigeracion' },
-        { icon: <SettingsEthernetIcon />, label: 'Tarjeta de Red' },
-        { icon: <SettingsSystemDaydreamIcon/>, label: 'Procesador' }
+        { icon: <MemoryIcon />, label: 'Memoria RAM', path: '/memoriaram' },
+        { icon: <StorageIcon />, label: 'Almacenamiento', path: '/almacenamiento' },
+        { icon: <DeveloperBoardIcon />, label: 'Tarjeta Madre', path: '/tarjetamadre' },
+        { icon: <PowerIcon />, label: 'Fuente de Poder', path: '/fuentepoder' },
+        { icon: <AccountTreeIcon />, label: 'Tarjeta Grafica', path: '/tarjetagrafica' },
+        { icon: <DnsIcon />, label: 'CPU', path: '/cpu' },
+        { icon: <AcUnitIcon />, label: 'Refrigeracion', path: '/refrigeracion' },
+        { icon: <SettingsEthernetIcon />, label: 'Tarjeta de Red', path: '/tarjetared' },
+        { icon: <SettingsSystemDaydreamIcon />, label: 'Procesador', path: '/procesador' }
       ];
+      
+      const handleClick = (path) => {
+        navigate(path);
+      };
       
 
     return (
@@ -60,11 +66,16 @@ export const Conocer = () => {
             {seleccion === 'componentes' && (
                 <div className="iconos-circulos">
                 {iconComponents.map((item, index) => (
-                  <div key={index} className="circulo-con-texto">
-                     <div className="circulo">{item.icon}</div>
-                     <p className="etiqueta-circulo">{item.label}</p>
-                   </div>
-                ))}
+            <div
+            key={index}
+            className="circulo-con-texto"
+             onClick={() => item.path && handleClick(item.path)}
+            style={{ cursor: 'pointer' }}
+          >
+              <div className="circulo">{item.icon}</div>
+             <p className="etiqueta-circulo">{item.label}</p>
+           </div>
+            ))}
                    </div>
             )}
 
