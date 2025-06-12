@@ -4,6 +4,9 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { useInfoStore } from "../utils/useInfoShow";
 import { labels } from "../constants/constants";
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+
 
 function ModelViewer  ({modelName = "model.glb", })  {
   return (
@@ -15,10 +18,9 @@ function ModelViewer  ({modelName = "model.glb", })  {
     </Canvas>
   );
 };
-function ModelWithLabels({modelName}) {
-
-  console.log(modelName)
+function ModelWithLabels({ modelName }) {
   const { scene } = useGLTF(`/${modelName}`);
+  const modelGroupRef = useRef(); // Este grupo contendrá modelo + etiquetas
   const { camera } = useThree();
   const setLabel = useInfoStore((state) => state.setLabel);
 
@@ -35,11 +37,18 @@ function ModelWithLabels({modelName}) {
       onUpdate: () => camera.lookAt(targetPos),
     });
 
-    setLabel(label); // actualiza el estado global
+    setLabel(label);
   };
 
+  // 🔁 Rotar el grupo completo
+  useFrame(() => {
+    if (modelGroupRef.current) {
+      modelGroupRef.current.rotation.y += 0.003;
+    }
+  });
+
   return (
-    <>
+    <group ref={modelGroupRef}>
       <primitive object={scene} scale={1} />
 
       {labels.map(({ id, label, labelPosition, target }) => (
@@ -62,7 +71,7 @@ function ModelWithLabels({modelName}) {
           </Html>
         </group>
       ))}
-    </>
+    </group>
   );
 }
 export default ModelViewer;

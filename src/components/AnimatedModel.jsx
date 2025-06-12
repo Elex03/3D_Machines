@@ -1,38 +1,77 @@
-import { useGLTF, useAnimations } from '@react-three/drei'
-import { useEffect, useRef } from 'react'
-import { useFrame, useThree } from '@react-three/fiber'
-import * as THREE from 'three'
+import { useGLTF } from "@react-three/drei";
+import { useEffect, useRef, useState } from "react";
+import * as THREE from "three";
 
 export function AnimatedModel({ url }) {
-  const group = useRef()
-  const { scene, animations } = useGLTF(url)
-  const { actions } = useAnimations(animations, group)
-  const { mouse } = useThree()
+  const group = useRef();
+  const { scene, animations } = useGLTF(url);
+  const [mixers, setMixers] = useState([]);
+  const [currentClip, setCurrentClip] = useState(null);
 
   useEffect(() => {
-    if (actions && actions['Animation']) {
-      actions['Animation'].reset().fadeIn(0.5).play()
-    } else {
-      const first = Object.values(actions)[0]
-      if (first) first.reset().fadeIn(0.5).play()
-    }
-  }, [actions])
+    if (!animations || animations.length === 0) return;
 
-  useFrame(() => {
-    if (!group.current) return
+    console.log("Animaciones cargadas:", animations.map(a => a.name));
 
-    // Limita el movimiento como una cabeza humana
-    const maxX = THREE.MathUtils.degToRad(20) // arriba/abajo
-    const maxY = THREE.MathUtils.degToRad(30) // izquierda/derecha
+    const skinnedMeshes = [];
+    const skeletonMap = new Map();
 
-    // Aplica límites y suaviza el movimiento
-    const targetX = THREE.MathUtils.clamp(-mouse.y * maxX, -maxX, maxX)
-    const targetY = THREE.MathUtils.clamp(mouse.x * maxY, -maxY, maxY)
+    scene.traverse((child) => {
+      if (child.isSkinnedMesh && !skeletonMap.has(child.skeleton.uuid)) {
+        skeletonMap.set(child.skeleton.uuid, true);
+        skinnedMeshes.push(child);
+        child.frustumCulled = false;
+        console.log("SkinnedMesh encontrado:", child.name);
+      }
+    });
 
-    // Interpolación suave hacia la rotación deseada
-    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetX, 0.1)
-    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetY, 0.1)
-  })
+    // Escoger animación base
+    let baseClip = animations.find(a => a.name === "Chat3.001");
+    if (!baseClip) baseClip = animations.find(a => a.name === "Chat3");
+    if (!baseClip) baseClip = animations[0];
 
-  return <primitive ref={group} object={scene} scale={3} />
+    console.log("Animación base seleccionada:", baseClip.name);
+
+    // Crear mixers sin remapear las pistas
+    const mixerInfo = skinnedMeshes.map((mesh) => {
+      const mixer = new THREE.AnimationMixer(mesh);
+      return { mixer, clip: baseClip };
+    });
+
+    setMixers(mixerInfo);
+    setCurrentClip(baseClip);
+  }, [scene, animations]);
+
+  useEffect(() => {
+    if (!currentClip || mixers.length === 0) return;
+
+    mixers.forEach(({ mixer, clip }) => {
+      mixer.stopAllAction();
+      const action = mixer.clipAction(clip);
+      action.reset();
+      action.fadeIn(0.3);
+      action.play();
+      console.log("Iniciando acción para clip", clip.name);
+    });
+  }, [currentClip, mixers]);
+
+  useEffect(() => {
+    const clock = new THREE.Clock();
+    let mounted = true;
+
+    const animate = () => {
+      if (!mounted) return;
+      const delta = clock.getDelta();
+      mixers.forEach(({ mixer }) => mixer.update(delta));
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => {
+      mounted = false;
+      mixers.forEach(({ mixer }) => mixer.stopAllAction());
+    };
+  }, [mixers]);
+
+  return <primitive ref={group} object={scene} scale={3} />;
 }
