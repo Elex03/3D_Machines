@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import { useInfoStore } from "../utils/useInfoShow";
+import { useAudioStore } from "../utils/audioStore";
 
 const paragraph = {
-  Procesador : "Hello universe",
-}
-
+  Procesador: "Hello universe",
+};
 
 export default function InfoPanel() {
   const currentLabel = useInfoStore((state) => state.currentLabel);
-
+  const isAudioOn = useAudioStore((state) => state.isAudioOn);
 
   useEffect(() => {
-    speakLabel(currentLabel);
-  }, [currentLabel]);
+    speakLabel(currentLabel, isAudioOn);
+  }, [currentLabel, isAudioOn]);
 
   return (
     <div style={{ padding: "1rem" }}>
@@ -30,31 +30,33 @@ export default function InfoPanel() {
   );
 }
 
-function speakLabel(currentLabel) {
-  console.log(currentLabel)
+function speakLabel(currentLabel, ismuted) {
+  console.log(currentLabel);
 
   if (currentLabel) {
-    
-    window.speechSynthesis.cancel()
-    window.speechSynthesis.speak(utteranceSetting())
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utteranceSetting(ismuted));
   }
 }
 
-const utteranceSetting = () => {
+const utteranceSetting = (ismuted) => {
+  console.log(ismuted);
 
- const utterance = new SpeechSynthesisUtterance(paragraph[`${'Procesador'}`])
-    utterance.lang = 'es-EN'
+  const utterance = new SpeechSynthesisUtterance(paragraph[`${"Procesador"}`]);
+  utterance.lang = "es-EN";
 
-    utterance.pitch = 0.5
-    utterance.rate = 1   
-    utterance.volume = 1  
+  utterance.pitch = 0.5;
+  utterance.rate = 1;
+  utterance.volume = ismuted ? 1 : 0;
 
-    const voices = window.speechSynthesis.getVoices()
-    const robotVoice = voices.find(v =>
-      v.name.toLowerCase().includes('google español') || v.name.toLowerCase().includes('monotone')
-    )
-    if (robotVoice) {
-      utterance.voice = robotVoice
-    }
+  const voices = window.speechSynthesis.getVoices();
+  const robotVoice = voices.find(
+    (v) =>
+      v.name.toLowerCase().includes("google español") ||
+      v.name.toLowerCase().includes("monotone")
+  );
+  if (robotVoice) {
+    utterance.voice = robotVoice;
+  }
   return utterance;
-}
+};
