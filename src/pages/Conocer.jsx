@@ -1,7 +1,6 @@
-
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 //css
 import '../styles/conocerComponents.css';
 //iconos
@@ -19,13 +18,12 @@ import AccountTreeIcon from '@mui/icons-material/AccountTreeOutlined';
 import AcUnitIcon from '@mui/icons-material/AcUnitOutlined';
 import SettingsSystemDaydreamIcon from '@mui/icons-material/SettingsSystemDaydreamOutlined';
 
+
+//ya tiene aplicado motion
 export const Conocer = () => {
     const [seleccion, setSeleccion] = useState('componentes');
     const navigate = useNavigate();
-    const [seleccionado, setSeleccionado] = useState(null);
 
-
-    //iconos comp
     const iconComponents = [
         { icon: <MemoryIcon />, label: 'Memoria RAM', path: '/memoriaram' },
         { icon: <StorageIcon />, label: 'Almacenamiento', path: '/almacenamiento' },
@@ -36,17 +34,34 @@ export const Conocer = () => {
         { icon: <AcUnitIcon />, label: 'Refrigeracion', path: '/refrigeracion' },
         { icon: <SettingsEthernetIcon />, label: 'Tarjeta de Red', path: '/tarjetared' },
         { icon: <SettingsSystemDaydreamIcon />, label: 'Procesador', path: '/procesador' }
-      ];
-      
-      const handleClick = (path) => {
+    ];
+
+    const handleClick = (path) => {
         navigate(path);
-      };
-      
+    };
 
     return (
-        <div className="conocer-container">
-            <h1>¡Bienvenido a la sección Conocer! </h1>
-            <p>Aquí aprenderás sobre los componentes de nuestras máquinas y sus periféricos </p>
+        <motion.div 
+            className="conocer-container"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+        >
+            <motion.h1 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+            >
+                ¡Bienvenido a la sección Conocer!
+            </motion.h1>
+
+            <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+            >
+                Aquí aprenderás sobre los componentes de nuestras máquinas y sus periféricos
+            </motion.p>
 
             <div className="botones-navegacion">
                 <button
@@ -64,26 +79,41 @@ export const Conocer = () => {
             </div>
 
             {seleccion === 'componentes' && (
-                <div className="iconos-circulos">
-                {iconComponents.map((item, index) => (
-            <div
-            key={index}
-            className="circulo-con-texto"
-             onClick={() => item.path && handleClick(item.path)}
-            style={{ cursor: 'pointer' }}
-          >
-              <div className="circulo">{item.icon}</div>
-             <p className="etiqueta-circulo">{item.label}</p>
-           </div>
-            ))}
-                   </div>
+                <motion.div 
+                    className="iconos-circulos"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                >
+                    {iconComponents.map((item, index) => (
+                        <motion.div
+                            key={index}
+                            className="circulo-con-texto"
+                            onClick={() => handleClick(item.path)}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.1 * index }}
+                            style={{ cursor: 'pointer' }}
+                        >
+                            <div className="circulo">{item.icon}</div>
+                            <p className="etiqueta-circulo">{item.label}</p>
+                        </motion.div>
+                    ))}
+                </motion.div>
             )}
 
             {seleccion === 'perifericos' && (
-                <div className="texto-info">
+                <motion.div 
+                    className="texto-info"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                >
                     <p>Información sobre periféricos pronto estará disponible 💻🖱️</p>
-                </div>
+                </motion.div>
             )}
-        </div>
+        </motion.div>
     );
 };
