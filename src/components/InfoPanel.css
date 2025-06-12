@@ -1,0 +1,17 @@
+
+/* scroll */
+.scroll-delgado {
+  overflow-y: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: #404141 transparent; 
+}
+.scroll-delgado::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-delgado::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-delgado::-webkit-scrollbar-thumb {
+  background-color: #0d0d0e;
+  border-radius: 10px;
+}

@@ -1,0 +1,95 @@
+[
+  {
+    "id": "Procesador",
+    "description": "También conocido como CPU (Unidad Central de Procesamiento), es el componente principal del ordenador encargado de ejecutar todas las instrucciones de los programas y coordinar las tareas que realiza el sistema. Actúa como el “cerebro” del equipo.",
+    "image": "https://http2.mlstatic.com/procesador-intel-core-i3-3220-de-tercera-gen-33-ghz-D_NQ_NP_684911-MLM20676362573_042016-F.jpg",
+    "link": "https://es.wikipedia.org/wiki/Unidad_central_de_procesamiento",    
+    "youtube": "https://www.youtube.com/embed/bJrfPQJ_Ks4?si=QeWhZ3T30BtU5e3p"
+  },
+  {
+    "id": "Memoria RAM",
+    "description": "Es una memoria temporal que almacena datos y programas de forma volátil. Su contenido se borra al apagar el equipo.",
+    "image": "https://th.bing.com/th/id/OIP.toNrjGTfKodlG9VJZgL6CAHaF0?rs=1&pid=ImgDetMain",
+    "link": "https://es.wikipedia.org/wiki/Memoria_de_acceso_aleatorio",
+    "extra": "Cuanta más RAM tenga un equipo, mayor será su capacidad para ejecutar múltiples tareas al mismo tiempo.",
+    "youtube":  "https://www.youtube.com/embed/_abAWnq0Gs8?si=0T8Zs1U4Vxw7bbYL"
+  },
+  {
+    "id": "Tarjeta gráfica",
+    "description": "Es el componente encargado de procesar y renderizar imágenes en la pantalla.",
+    "image": "https://ordenadores-y-portatiles.com/wp-content/uploads/2020/06/tarjetas-graficas-ordenador.jpg",
+    "link": "https://es.wikipedia.org/wiki/Tarjeta_gr%C3%A1fica",
+    "youtube": "https://www.youtube.com/embed/lSTKcpz6Ioo?si=uWQzLoL7G8y9DyUp"
+  },
+  {
+    "id": "Puertos PCI",
+    "description": "Se utilizan para conectar tarjetas de expansión como tarjetas de sonido, de red o gráficas adicionales.",
+    "image": "/https://hardzone.es/app/uploads-hardzone.es/2019/11/Puertos-PCIe-01.jpg",
+    "link": "https://www.partesdeunacomputadora.net/motherboard/puertos-pci-agp-y-pci-express"
+  },
+  {
+    "id": "La Bios",
+    "description": "Es el sistema básico de entrada/salida que inicia el hardware al encender el equipo.",
+    "image": "https://cdn.appuals.com/wp-content/uploads/2023/01/How-to-Access-the-BIOS-on-Different-Motherboard-Manufacturers.jpg",
+    "link": "https://es.wikipedia.org/wiki/BIOS"
+  },
+  {
+    "id": "Bateria",
+    "description": "Mantiene la configuración del BIOS y el reloj en tiempo real cuando el equipo está apagado.",
+    "image": "https://www.bestparentscafe.com/wp-content/uploads/2023/11/%EB%A9%94%EC%9D%B8%EB%B3%B4%EB%93%9C-%EA%B1%B4%EC%A0%84%EC%A7%80-%EB%B9%BC%EA%B8%B0-6%EB%8B%A8%EA%B3%84-%EA%B3%BC%EC%A0%95.jpg"
+  },
+  {
+    "id": "PCI EXPRESS 1",
+    "description": "Ranura de expansión de alta velocidad utilizada para tarjetas gráficas y otros dispositivos.",
+    "image": "https://g2z7g2s8.delivery.rocketcdn.me/wp-content/uploads/2017/10/puertos-pci-express-3.jpg",
+    "link": "https://www.islabit.com/76371/puertos-pci-express-tamanos.html",
+    "youtube": "https://www.youtube.com/embed/y48HkuQil8w?si=j4WbwyyFG973i2dU"
+  },
+  {
+    "id": "Conectores SATA",
+    "description": "Permiten la conexión de discos duros y unidades ópticas.",
+    "image": "https://www.guiahardware.es/wp-content/uploads/2020/09/sata-asus-1536x1152.jpg"
+  },
+  {
+    "id": "Conectores de alimentacion",
+    "description": "Proveen energía eléctrica a la placa base y componentes conectados.",
+    "image": "https://img.freepik.com/fotos-premium/coleccion-electronica-conector-alimentacion-placa-base-computadora_486684-667.jpg"
+  },
+  {
+    "id": "Mouse o raton",
+    "description": "Dispositivo de entrada que permite interactuar con la interfaz gráfica del sistema.",
+    "link": "https://es.wikipedia.org/wiki/Mouse"
+  },
+  {
+    "id": "Teclado",
+    "description": "Dispositivo de entrada utilizado para escribir y ejecutar comandos.",
+    "link": "https://es.wikipedia.org/wiki/Teclado_(inform%C3%A1tica)"
+  },
+  {
+    "id": "Tarjeta de audio",
+    "description": "Procesa señales de sonido para salida de audio.",
+    "image": "https://siaguanta.com/wp-content/uploads/2020/01/tarjeta-de-sonido7.jpg"
+  },
+  {
+    "id": "Entradas USB",
+    "description": "Conectores para dispositivos periféricos como memorias, teclados, ratones, etc.",
+    "image": "https://img.freepik.com/premium-photo/ports-motherboard-usb-20-lan-line-out-microphone_928174-4575.jpg"
+  },
+  {
+    "id": "Conector RJ45",
+    "description": "Permite la conexión a redes por cable Ethernet.",
+    "image": "https://www.cablesyconectoreshoy.com/imagenes/2023/01/Conectores-RJ45-placa.jpg",
+    "link": "https://es.wikipedia.org/wiki/RJ45"
+  },
+  {
+    "id": "Puerto Paralelo",
+    "description": "Conector antiguo utilizado principalmente para impresoras.",
+    "image": "https://4.bp.blogspot.com/-MWYDzIFMRAw/TtVrBcXH2LI/AAAAAAAAADg/6D9Cw59TApc/s1600/conector_de_puerto_paralelo_2.jpg"    
+  },
+  {
+    "id": "VGA",
+    "description": "Puerto para conectar monitores mediante señales analógicas.",
+    "image": "https://adcod.com/wp-content/uploads/2022/10/why-is-vga-still-used-1024x768.jpg",
+    "link": "https://es.wikipedia.org/wiki/Video_Graphics_Array"
+  }
+]
