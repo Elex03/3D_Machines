@@ -18,7 +18,7 @@ export const ComponentsDetails = () => {
       </div>
       <div style={{ flex: 1, display: "flex", width: "900px" }}>
         <InfoPanel />
-        <ModelAnimatedViewer modelName="robot.glb" />
+        <ModelAnimatedViewer modelName="bmo.glb" dimesions={{width: '200px', height: '800px'}}/>
       </div>
     </Layout>
   );
