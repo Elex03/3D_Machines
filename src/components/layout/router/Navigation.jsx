@@ -2,6 +2,7 @@ import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom"
 import logo from '../../../assets/logo.svg' // Adjust the path as necessary
 import { ComponentsDetails } from "../../../pages/ComponentsDetails"
 import '../../../App.css';
+import { ComponentsLearning } from "../../../pages/ComponentsLearning";
 
 export const Navigation = () => {
   return (
@@ -52,7 +53,7 @@ export const Navigation = () => {
       <Routes>
         <Route path='/' element={<ComponentsDetails />} />
         <Route path='/conocer' element={<h1>Hola</h1>} />
-        <Route path='/aprendiendo' element={<h1>Soy</h1>} />
+        <Route path='/aprendiendo' element={<ComponentsLearning />} />
         <Route path='/recomendaciones' element={<h1>Tongo</h1>} />
       </Routes>
     </BrowserRouter>
