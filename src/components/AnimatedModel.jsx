@@ -1,62 +1,77 @@
-import { useGLTF, useAnimations } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
-// import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 export function AnimatedModel({ url }) {
   const group = useRef();
   const { scene, animations } = useGLTF(url);
-  const { actions } = useAnimations(animations, group);
-  // const { mouse } = useThree();
-
-  const [currentAction, setCurrentAction] = useState(null);
-  const [isReady, setIsReady] = useState(false);
+  const [mixers, setMixers] = useState([]);
+  const [currentClip, setCurrentClip] = useState(null);
 
   useEffect(() => {
-    if (actions && Object.keys(actions).length > 0) {
-      console.log("Animaciones disponibles:", Object.keys(actions));
-      setIsReady(true);
-      const preferred = actions["Chat3.001"] ? "Chat3.001" : "Chat3";
-      setCurrentAction(preferred);
-    }
-  }, [actions]);
+    if (!animations || animations.length === 0) return;
+
+    console.log("Animaciones cargadas:", animations.map(a => a.name));
+
+    const skinnedMeshes = [];
+    const skeletonMap = new Map();
+
+    scene.traverse((child) => {
+      if (child.isSkinnedMesh && !skeletonMap.has(child.skeleton.uuid)) {
+        skeletonMap.set(child.skeleton.uuid, true);
+        skinnedMeshes.push(child);
+        child.frustumCulled = false;
+        console.log("SkinnedMesh encontrado:", child.name);
+      }
+    });
+
+    // Escoger animación base
+    let baseClip = animations.find(a => a.name === "Chat3.001");
+    if (!baseClip) baseClip = animations.find(a => a.name === "Chat3");
+    if (!baseClip) baseClip = animations[0];
+
+    console.log("Animación base seleccionada:", baseClip.name);
+
+    // Crear mixers sin remapear las pistas
+    const mixerInfo = skinnedMeshes.map((mesh) => {
+      const mixer = new THREE.AnimationMixer(mesh);
+      return { mixer, clip: baseClip };
+    });
+
+    setMixers(mixerInfo);
+    setCurrentClip(baseClip);
+  }, [scene, animations]);
 
   useEffect(() => {
-    if (!isReady || !actions || !currentAction) return;
+    if (!currentClip || mixers.length === 0) return;
 
-    // Detener todas las animaciones actuales
-    Object.values(actions).forEach((action) => action.fadeOut(0.2));
+    mixers.forEach(({ mixer, clip }) => {
+      mixer.stopAllAction();
+      const action = mixer.clipAction(clip);
+      action.reset();
+      action.fadeIn(0.3);
+      action.play();
+      console.log("Iniciando acción para clip", clip.name);
+    });
+  }, [currentClip, mixers]);
 
-    const next = actions[currentAction];
-    if (next) next.reset().fadeIn(0.2).play();
-    else console.warn(`No se encontró la animación ${currentAction}`);
-  }, [actions, currentAction, isReady]);
+  useEffect(() => {
+    const clock = new THREE.Clock();
+    let mounted = true;
 
-  // Movimiento cabeza con mouse
-  // useFrame(() => {
-  //   if (!group.current) return;
+    const animate = () => {
+      if (!mounted) return;
+      const delta = clock.getDelta();
+      mixers.forEach(({ mixer }) => mixer.update(delta));
+      requestAnimationFrame(animate);
+    };
+    animate();
 
-  //   const maxX = THREE.MathUtils.degToRad(20);
-  //   const maxY = THREE.MathUtils.degToRad(30);
-  //   const targetX = THREE.MathUtils.clamp(-mouse.y * maxX, -maxX, maxX);
-  //   const targetY = THREE.MathUtils.clamp(mouse.x * maxY, -maxY, maxY);
+    return () => {
+      mounted = false;
+      mixers.forEach(({ mixer }) => mixer.stopAllAction());
+    };
+  }, [mixers]);
 
-  //   group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetX, 0.1);
-  //   group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetY, 0.1);
-  // });
-
-  return (
-    <>
-      <primitive ref={group} object={scene} scale={3} />
-
-      {/* Prueba para cambiar entre varias animaciones
-      <div style={{ position: "absolute", top: 20, left: 20 }}>
-        {["Walk", "Idle", "Hide", "Chat1"].map((name) => (
-          <button key={name} onClick={() => setCurrentAction(name)}>
-            {name}
-          </button>
-        ))}
-      </div> */}
-    </>
-  );
+  return <primitive ref={group} object={scene} scale={3} />;
 }
