@@ -1,0 +1,104 @@
+
+
+.conocer-container {
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Esto centra los hijos horizontalmente */
+  }
+  
+  .botones-navegacion {
+    margin: 2rem 0; /*altura de los botones*/
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .botones-navegacion button {
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .botones-navegacion button.activo,
+  .botones-navegacion button:hover {
+    background-color: white;
+    color: #1e1e1e;
+  }
+  
+  .iconos-circulos {
+    display: grid;
+    grid-template-columns: repeat(6, 80px);
+    column-gap: 10rem; /* separacion de circ*/
+    gap: 7rem;
+    justify-items: center;
+    margin-top: 2rem;
+    width: max-content; /* que el grid no ocupe todo el ancho */
+  }
+  
+  .iconos-circulos .circulo {
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  cursor: pointer;
+  }
+
+  /* Al pasar el mouse o al seleccionar */
+.circulo:hover,
+.circulo.activo {
+  background-color: white;
+  color: #1e1e1e;
+}
+
+/* Cambiar color del icono dentro del círculo */
+.circulo:hover svg,
+.circulo.activo svg {
+  color: #1e1e1e;
+}
+  
+  .material-icons-outlined {
+    font-size: 38px;
+    color: white;
+  }
+  
+  /* Segunda fila de 3 centrada */
+  .iconos-circulos > :nth-child(n+7) {
+    grid-column: span 1;
+    margin-left: 10rem; /* ajusta este valor para moverlo más */
+    margin-top: -70px; /* Ajusta el valor según lo que necesites */
+
+  }
+  .iconos-circulos > :nth-child(7) {
+    grid-column-start: 2; /* empieza en la columna 2 */
+  }
+
+  .circulo svg {
+    font-size: 38px;
+    color: white;
+  }
+  /*parte de texto*/
+  .circulo-con-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .etiqueta-circulo {
+    color: white;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+  

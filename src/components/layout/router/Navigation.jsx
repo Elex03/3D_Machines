@@ -1,8 +1,10 @@
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
-import logo from "../../../assets/logo.svg"; // Adjust the path as necessary
-import { ComponentsDetails } from "../../../pages/ComponentsDetails";
-import "../../../App.css";
-import { HomePage } from "../../../pages/HomePage";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom"
+import logo from '../../../assets/logo.svg' // Adjust the path as necessary
+import { ComponentsDetails } from "../../../pages/ComponentsDetails"
+import '../../../App.css';
+//pages de nav
+import { Conocer } from "../../../pages/Conocer";
+import {Inicio} from "../../../pages/Inicio";
 
 export const Navigation = () => {
   return (
@@ -14,11 +16,11 @@ export const Navigation = () => {
           display: "flex",
           alignItems: "center",
           flexWrap: "wrap",
-          position: "fixed",
+          position: 'relative',
           top: 0,
           left: 0,
           width: "100%",
-          zIndex: 1000,
+
         }}
       >
         <img
@@ -91,10 +93,12 @@ export const Navigation = () => {
       </nav>
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/conocer" element={<ComponentsDetails />} />
-        <Route path="/aprendiendo" element={<h1>Soy</h1>} />
-        <Route path="/recomendaciones" element={<h1>Tongo</h1>} />
+        <Route path='/' element={<Inicio />} />
+        <Route path='/conocer' element={<Conocer />} />
+        <Route path='/aprendiendo' element={<h1>Soy</h1>} />
+        <Route path='/recomendaciones' element={<h1>Tongo</h1>} />
+        <Route path="/tarjetamadre" element={<ComponentsDetails />} />
+
       </Routes>
     </BrowserRouter>
   );
