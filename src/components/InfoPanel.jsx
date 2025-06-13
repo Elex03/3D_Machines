@@ -14,18 +14,23 @@ export default function InfoPanel() {
 
   return (
     <div
-  className="scroll-delgado"
+  className="scroll-delgado info-panel"
   style={{
-    maxWidth: "300px",
-    maxHeight: "525px",
-    background: "rgba(0, 0, 0, 0.1)",
-    padding: "1rem",
-    borderRadius: "10px",
-    border: "1px solid #fff",
-    color: "white",
+    maxWidth: "320px",
+    background: "rgba(255, 255, 255, 0.05)",
+    padding: "1.2rem",
+    borderRadius: "16px",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+    color: "#f0f0f0",
     wordWrap: "break-word",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+    backdropFilter: "blur(8px)",
+    maxHeight: info ? "525px" : "fit-content",
+    overflowY: info ? "auto" : "visible",
+    transition: "all 0.3s ease-in-out", 
   }}
 >
+
   <h2>Información del componente</h2>
   {info ? (
     <>
@@ -42,9 +47,9 @@ export default function InfoPanel() {
       )}
       {info.link && (
         <p>
-          Más información:{" "}
+          Enlace:{" "}
           <a href={info.link} target="_blank" rel="noopener noreferrer" style={{ color: "#03c4ff" }}>
-            Wikipedia
+            Más información...
           </a>
         </p>
       )}
@@ -63,8 +68,12 @@ export default function InfoPanel() {
         </div>
       )}
     </>
-  ) : (
-    <p>Haz clic en un componente del modelo para obtener más información.</p>
+  ) : (    
+    <p>Tarjeta Madre: también conocida como placa base o motherboard, 
+      es uno de los componentes más cruciales en una computadora. 
+      Su función principal radica en servir como el corazón del sistema, 
+      unificando y conectando todos los otros componentes críticos del mismo.
+      <br/><br/>Haz clic en un componente del modelo para obtener más información.</p>
   )}
 </div>
   );

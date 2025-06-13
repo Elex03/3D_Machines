@@ -15,3 +15,35 @@
   background-color: #0d0d0e;
   border-radius: 10px;
 }
+/* para estilo del panel */
+.info-panel h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #03c4ff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.info-panel p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.info-panel img {
+  display: block;
+  margin: 0.8rem auto;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.info-panel a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #03c4ff;
+}
+
+.info-panel a:hover {
+  text-decoration: underline;
+}
