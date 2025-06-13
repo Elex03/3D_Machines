@@ -8,7 +8,7 @@ export const ModelAnimatedViewer = ({
 }) => {
   return (
     <Canvas
-      camera={{ position: [0, 2, 3] }}
+      camera={{ position: [0, 0, 1] }}
       style={{ height: height, width: width }}
     >
       <ambientLight intensity={0.5} />

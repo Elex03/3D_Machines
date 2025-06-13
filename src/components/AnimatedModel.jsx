@@ -26,8 +26,8 @@ export function AnimatedModel({ url }) {
     });
 
     // Escoger animación base
-    let baseClip = animations.find(a => a.name === "Chat3.001");
-    if (!baseClip) baseClip = animations.find(a => a.name === "Chat3");
+    let baseClip = animations.find(a => a.name === "Chat1.001");
+    if (!baseClip) baseClip = animations.find(a => a.name === "Chat1");
     if (!baseClip) baseClip = animations[0];
 
     console.log("Animación base seleccionada:", baseClip.name);

@@ -10,7 +10,7 @@ import { useRef } from "react";
 
 function ModelViewer  ({modelName = "model.glb", })  {
   return (
-    <Canvas camera={{ position: [0, 10, 0] }} style={{}}>
+    <Canvas camera={{ position: [10, 3, 4] }} style={{}}>
       <ambientLight />
       <directionalLight position={[5, 5, 5]} />
       <ModelWithLabels modelName={modelName} />
