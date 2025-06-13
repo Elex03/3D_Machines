@@ -4,7 +4,9 @@ import { ComponentsDetails } from "../../../pages/ComponentsDetails"
 import '../../../App.css';
 //pages de nav
 import { Conocer } from "../../../pages/Conocer";
-import {Inicio} from "../../../pages/Inicio";
+import { HomePage } from "../../../pages/HomePage";
+import { ComponentsLearning } from "../../../pages/ComponentsLearning";
+
 
 export const Navigation = () => {
   return (
@@ -93,9 +95,9 @@ export const Navigation = () => {
       </nav>
 
       <Routes>
-        <Route path='/' element={<Inicio />} />
+        <Route path='/' element={<HomePage />} />
         <Route path='/conocer' element={<Conocer />} />
-        <Route path='/aprendiendo' element={<h1>Soy</h1>} />
+        <Route path='/aprendiendo' element={<ComponentsLearning />} />
         <Route path='/recomendaciones' element={<h1>Tongo</h1>} />
         <Route path="/tarjetamadre" element={<ComponentsDetails />} />
 
