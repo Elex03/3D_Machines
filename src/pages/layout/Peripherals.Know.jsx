@@ -23,11 +23,11 @@ export const Peripherals = () => {
         display: "flex",
         flexDirection: "column",
         gap: "20px",
-        width: "100%",
+        width: "80vw",
       }}
     >
       {/* Botones de selección */}
-      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "10px", alignItems: "center" , justifyContent: 'space-evenly'}}>
         {iconComponentsTwo.map((item) => (
           <button
             key={item.path}
@@ -38,6 +38,7 @@ export const Peripherals = () => {
               color: "white",
               border: "none",
               cursor: "pointer",
+              
             }}
           >
             {item.label}

@@ -18,9 +18,9 @@ export const ComponentsDetails = () => {
           background: "transparent",
           backdropFilter: "blur(10px)",
           padding: "1rem",
+          width: '500px'
         }}
       >
-      <BotonAtras />
         <button
           onClick={toggleAudio}
           style={{
@@ -28,9 +28,10 @@ export const ComponentsDetails = () => {
             border: "none",
             padding: 0,
             position: "relative",
-         
             cursor: "pointer",
             outline: "none",
+            left: 0, 
+            display: 'flex'
           }}
         >
           <img
@@ -46,11 +47,11 @@ export const ComponentsDetails = () => {
           />
         </button>
 
-        <ModelViewer modelName="model.glb" />
+        <ModelViewer modelName="model.glb" labels={true} />
       </div>
-      <div style={{ flex: 1, display: "flex", width: "900px" }}>
+      <div style={{ display: "flex", width: "800px", height: '500px'}}>
         <InfoPanel />
-        <ModelAnimatedViewer modelName="earth_cartoon.glb" dimesions={{width: '200px', height: '800px'}}/>
+        <ModelAnimatedViewer modelName="earth_cartoon.glb" dimesions={{width: '500px'}}/>
       </div>
     </Layout>
   );

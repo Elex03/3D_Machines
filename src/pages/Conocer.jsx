@@ -31,6 +31,8 @@ import SettingsSystemDaydreamIcon from '@mui/icons-material/SettingsSystemDaydre
 
 import {Peripherals} from './layout/Peripherals.Know.jsx'
 
+import {ComponentsDetails} from './ComponentsDetails'
+
 //ya tiene aplicado motion
 export const Conocer = () => {
     const [seleccion, setSeleccion] = useState('componentes');
@@ -110,22 +112,7 @@ export const Conocer = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                 >
-                    {iconComponents.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            className="circulo-con-texto"
-                            onClick={() => handleClick(item.path)}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.1 * index }}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            <div className="circulo">{item.icon}</div>
-                            <p className="etiqueta-circulo">{item.label}</p>
-                        </motion.div>
-                    ))}
+                    <ComponentsDetails />
                 </motion.div>
             )}
 

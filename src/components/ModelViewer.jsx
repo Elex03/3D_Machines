@@ -9,7 +9,7 @@ import { useRef } from "react";
 
 function ModelViewer({ modelName = "model.glb", labels = false }) {
   return (
-    <Canvas camera={{ position: [10, 3, 4] }} style={{}}>
+    <Canvas camera={{ position: [10, 3, 4] }} style={{width: '700px', height: '400px'}}>
       <ambientLight />
       <directionalLight position={[5, 5, 5]} />
 

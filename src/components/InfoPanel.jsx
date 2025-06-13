@@ -14,68 +14,74 @@ export default function InfoPanel() {
 
   return (
     <div
-  className="scroll-delgado info-panel"
-  style={{
-    maxWidth: "320px",
-    background: "rgba(255, 255, 255, 0.05)",
-    padding: "1.2rem",
-    borderRadius: "16px",
-    border: "1px solid rgba(255, 255, 255, 0.2)",
-    color: "#f0f0f0",
-    wordWrap: "break-word",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-    backdropFilter: "blur(8px)",
-    maxHeight: info ? "525px" : "fit-content",
-    overflowY: info ? "auto" : "visible",
-    transition: "all 0.3s ease-in-out", 
-  }}
->
-
-  <h2>Información del componente</h2>
-  {info ? (
-    <>
-      <p>
-        Estás viendo: <strong>{info.id}</strong>, {info.description}
-      </p>
-      {info.extra && <p>{info.extra}</p>}
-      {info.image && (
-        <img
-          src={info.image}
-          alt={`Imagen de ${info.id}`}
-          style={{ width: "50%", borderRadius: "8px", margin: "0.5rem 0" }}
-        />
-      )}
-      {info.link && (
+      className="scroll-delgado info-panel"
+      style={{
+        background: "rgba(255, 255, 255, 0.05)",
+        padding: "1.2rem",
+        borderRadius: "16px",
+        border: "1px solid rgba(255, 255, 255, 0.2)",
+        color: "#f0f0f0",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+        backdropFilter: "blur(8px)",
+        overflowY: info ? "auto" : "visible",
+        transition: "all 0.3s ease-in-out",
+        width: '400px'
+      }}
+    >
+      <h2>Información del componente</h2>
+      {info ? (
+        <>
+          <p>
+            Estás viendo: <strong>{info.id}</strong>, {info.description}
+          </p>
+          {info.extra && <p>{info.extra}</p>}
+          {info.image && (
+            <img
+              src={info.image}
+              alt={`Imagen de ${info.id}`}
+              style={{ width: "50%", borderRadius: "8px", margin: "0.5rem 0" }}
+            />
+          )}
+          {info.link && (
+            <p>
+              Enlace:{" "}
+              <a
+                href={info.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#03c4ff" }}
+              >
+                Más información...
+              </a>
+            </p>
+          )}
+          {info.youtube && (
+            <div style={{ marginTop: "1rem" }}>
+              <iframe
+                width="100%"
+                height="200"
+                src={info.youtube}
+                title={`Video de ${info.id}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ borderRadius: "8px" }}
+              ></iframe>
+            </div>
+          )}
+        </>
+      ) : (
         <p>
-          Enlace:{" "}
-          <a href={info.link} target="_blank" rel="noopener noreferrer" style={{ color: "#03c4ff" }}>
-            Más información...
-          </a>
+          Tarjeta Madre: también conocida como placa base o motherboard, es uno
+          de los componentes más cruciales en una computadora. Su función
+          principal radica en servir como el corazón del sistema, unificando y
+          conectando todos los otros componentes críticos del mismo.
+          <br />
+          <br />
+          Haz clic en un componente del modelo para obtener más información.
         </p>
       )}
-      {info.youtube && (
-        <div style={{ marginTop: "1rem" }}>
-          <iframe
-            width="100%"
-            height="200"
-            src={info.youtube}
-            title={`Video de ${info.id}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{ borderRadius: "8px" }}
-          ></iframe>
-        </div>
-      )}
-    </>
-  ) : (    
-    <p>Tarjeta Madre: también conocida como placa base o motherboard, 
-      es uno de los componentes más cruciales en una computadora. 
-      Su función principal radica en servir como el corazón del sistema, 
-      unificando y conectando todos los otros componentes críticos del mismo.
-      <br/><br/>Haz clic en un componente del modelo para obtener más información.</p>
-  )}
-</div>
+    </div>
   );
 }
 
@@ -88,9 +94,10 @@ function speakLabel(text) {
     utterance.volume = 1;
 
     const voices = window.speechSynthesis.getVoices();
-    const robotVoice = voices.find((v) =>
-      v.name.toLowerCase().includes("google español") ||
-      v.name.toLowerCase().includes("monotone")
+    const robotVoice = voices.find(
+      (v) =>
+        v.name.toLowerCase().includes("google español") ||
+        v.name.toLowerCase().includes("monotone")
     );
     if (robotVoice) {
       utterance.voice = robotVoice;
