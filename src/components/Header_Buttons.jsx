@@ -16,8 +16,8 @@ export const Header_Buttons = () => {
 
             <button type="button" class="btn btn-outline-light" >Videos</button>
             <button type="button" class="btn btn-outline-light">Guias</button>
-            <button type="button" class="btn btn-outline-light">Tips</button>
             <button type="button" class="btn btn-outline-light">Recursos</button>
+            <button type="button" class="btn btn-outline-light">Tips</button>
         </div>
     )
 
