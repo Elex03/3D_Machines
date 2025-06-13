@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ModelAnimatedViewer } from '../../components/ModelAnimatedViewer'
+import peripheralsInfo from '../../data/peripheralsInfo.json';
 
 // tus opciones:
 const iconComponentsTwo = [
@@ -60,7 +61,17 @@ export const Peripherals = () => {
         >
           {/* Aquí puedes mostrar más información, imágenes, etc. */}
           {selected ? (
-            <p>Aquí puedes cargar más información de {selected?.label}.</p>
+            <div style={{maxWidth: '600px', marginTop: "10px"}}>
+              <h2>{peripheralsInfo[selected.path]?.name}</h2>
+              <p>{peripheralsInfo[selected.path]?.description}</p>
+              {peripheralsInfo[selected.path]?.image && (
+                <img
+                  src={peripheralsInfo[selected.path].image}
+                  alt={peripheralsInfo[selected.path].name}
+                  style={{ width: "100%", maxWidth: "400px", marginTop: "10px", borderRadius: "10px" }}
+                />
+              )}
+            </div>                             
           ) : (
             <p>Nada elegido aún</p>
           )}

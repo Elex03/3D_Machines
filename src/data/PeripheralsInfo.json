@@ -1,0 +1,47 @@
+{
+  "/monitor": {
+    "name": "Monitor",
+    "description": "Dispositivo de salida que permite visualizar la información generada por la computadora, mostrando interfaces gráficas, videos, texto y más. Es uno de los principales medios de interacción visual del usuario con el sistema. Los monitores actuales varían en tamaño, resolución (HD, Full HD, 4K), tipo de panel (LCD, LED, OLED) y características como tasa de refresco y tiempo de respuesta, factores clave en entornos de trabajo, diseño gráfico y videojuegos.",
+    "image": "https://www.1zoom.me/big2/991/326852-alexfas01.jpg"
+  },
+  "/raton": {
+    "name": "Ratón",
+    "description": "Dispositivo apuntador que permite interactuar con la interfaz gráfica mediante el movimiento del cursor, clics y desplazamiento. Esencial para tareas de navegación, edición, juegos y productividad. Los ratones pueden ser ópticos o láser, con cable o inalámbricos, y algunos incluyen botones adicionales o configuraciones programables que mejoran la eficiencia y personalización del usuario.",
+    "image": "https://i0.wp.com/esportsnesia.com/wp-content/uploads/2022/11/bg-01-KV-696x464.jpg"
+  },
+  "/teclado": {
+    "name": "Teclado",
+    "description": "Dispositivo de entrada que permite introducir datos y comandos mediante teclas, incluyendo letras, números y símbolos. Los teclados son indispensables para escribir textos, ejecutar comandos, programar o jugar. Existen variantes como teclados mecánicos, de membrana, ergonómicos e inalámbricos, y algunos incorporan retroiluminación RGB, teclas multimedia y funciones adicionales para mejorar la experiencia del usuario.",
+    "image": "https://img.freepik.com/premium-photo/computer-keyboard-with-neon-led-lights-dark-background_840989-5035.jpg"
+  },
+  "/auricular": {
+    "name": "Auricular",
+    "description": "Dispositivo de salida de audio que permite al usuario escuchar sonidos de manera privada, ideal para videollamadas, música, juegos y trabajo en ambientes compartidos. Los auriculares pueden incluir micrófonos integrados, funciones de cancelación de ruido activa, conectividad Bluetooth o por cable, y diseños que van desde los intrauriculares hasta los circumaurales, adaptándose a diferentes necesidades y preferencias.",
+    "image": "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2022/09/Best-gaming-headset-Razer-BlackShark_V2-550x309.jpg"
+  },
+  "/microfono": {
+    "name": "Micrófono",
+    "description": "Dispositivo de entrada que captura sonido, permitiendo grabar voz, realizar llamadas, interactuar con asistentes de voz o realizar transmisiones en vivo. Se utilizan en una amplia gama de aplicaciones, desde videoconferencias hasta producción musical. Los tipos más comunes son los de condensador, dinámicos y de solapa, y pueden estar integrados en otros dispositivos como cámaras web o auriculares.",
+    "image": "https://www.pcgamesn.com/wp-content/uploads/2020/10/Razer-Seiren-Mini.jpg"
+  },
+  "/parlante": {
+    "name": "Parlante",
+    "description": "Dispositivo de salida que convierte señales eléctricas en sonido, permitiendo escuchar música, efectos, notificaciones o voz desde la computadora. Los parlantes pueden ser externos o integrados, y varían desde modelos portátiles hasta sistemas de sonido envolvente (5.1 o 7.1). También hay versiones inteligentes con asistentes virtuales, conectividad inalámbrica y controles táctiles.",
+    "image": "https://th.bing.com/th/id/OIP.ZgULTsuow-wCoAUR6KTzYwAAAA?rs=1&pid=ImgDetMain"
+  },
+  "/impresora": {
+    "name": "Impresora",
+    "description": "Dispositivo de salida que permite obtener copias físicas (en papel u otros medios) de documentos o imágenes digitales. Las impresoras pueden ser de inyección de tinta, láser, térmicas, y multifuncionales, con capacidad de escanear, copiar y enviar por fax. Algunas ofrecen impresión inalámbrica, impresión a doble cara automática y funciones ecológicas como modo de ahorro de tinta y papel.",
+    "image": "https://www.softzone.es/app/uploads-softzone.es/2024/03/Impresora-en-Windows.jpg"
+  },
+  "/controles": {
+    "name": "Controles",
+    "description": "Dispositivos usados principalmente en videojuegos, que permiten controlar acciones y movimientos en el entorno virtual mediante botones, palancas, gatillos y sensores de movimiento. Pueden ser cableados o inalámbricos, compatibles con consolas o computadoras, y algunos incluyen retroalimentación háptica o vibración. Son ideales para juegos de acción, simulación, deportes y carreras.",
+    "image": "https://cdn.thewirecutter.com/wp-content/uploads/2018/03/PC-gamepads-lowres-02group-02-630x420.jpg"
+  },
+  "/usb": {
+    "name": "USB",
+    "description": "Dispositivo de almacenamiento portátil o puerto de conexión que permite transferir datos o alimentar energía a dispositivos externos. Las memorias USB son utilizadas para transportar información de manera rápida y práctica. También se emplea el conector USB para vincular periféricos como teclados, ratones, impresoras, cámaras, entre otros. Existen diferentes versiones como USB 2.0, 3.0, y USB-C, con velocidades y capacidades variables.",
+    "image": "https://concepto.de/wp-content/uploads/2018/09/USB-e1537379337251.jpg"
+  }
+}
