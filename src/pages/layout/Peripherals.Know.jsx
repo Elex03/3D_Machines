@@ -73,7 +73,9 @@ export const Peripherals = () => {
               )}
             </div>                             
           ) : (
-            <p>Nada elegido aún</p>
+            <div style={{maxWidth: '700px'}}>
+              <p>Los perifericos de entrada y salida o unidades de entrada/salida son los equipos físicos conectados a la computadora. Estos dispositivos permiten comunicar información entre el usuario y la computadora o manejar un soporte de información.</p>
+            </div>
           )}
 
         </div>
