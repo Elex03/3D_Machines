@@ -1,4 +1,4 @@
-import { Header_Buttons, VideoCard } from "../components/Header_Buttons"
+import { Header_Buttons} from "../components/Header_Buttons"
 import { Layout } from "../components/layout/Layout"
 
 export const ComponentsLearning = () => {
@@ -25,18 +25,7 @@ export const ComponentsLearning = () => {
                 </p>
 
                 <Header_Buttons />
-                <VideoCard
-                    title="Tutorial de React"
-                    description="Aprende los fundamentos en 10 minutos"
-                    videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    onClick={() => alert('Reproduciendo video')}
-                />
-                <VideoCard
-                    title="Tutorial de React"
-                    description="Aprende los fundamentos en 10 minutos"
-                    videoUrl="https://www.youtube.com/embed/huRcwqjtYsA?si=hXwz_2_5PbUHkR0-" 
-                    onClick={() => alert('Reproduciendo video')}
-                />
+
             </div>
 
         </Layout>
