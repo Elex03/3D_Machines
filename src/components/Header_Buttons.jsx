@@ -47,7 +47,6 @@ export const VideoCard = ({
         boxShadow: isHovered ? '0 4px 8px rgba(0, 0, 0, 0.1)' : 'none'
     };
 
-
     const videoContainerStyle = {
         flexShrink: 0,// Evita que el video se encoja
         width: '160px',
