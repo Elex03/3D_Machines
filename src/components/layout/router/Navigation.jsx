@@ -6,6 +6,7 @@ import '../../../App.css';
 import { Conocer } from "../../../pages/Conocer";
 import {Inicio} from "../../../pages/Inicio";
 
+
 export const Navigation = () => {
   return (
 
@@ -58,6 +59,7 @@ export const Navigation = () => {
         <Route path='/aprendiendo' element={<h1>Soy</h1>} />
         <Route path='/recomendaciones' element={<h1>Tongo</h1>} />
         <Route path="/tarjetamadre" element={<ComponentsDetails />} />
+        
 
       </Routes>
     </BrowserRouter>
