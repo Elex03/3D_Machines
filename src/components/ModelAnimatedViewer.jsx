@@ -8,13 +8,13 @@ export const ModelAnimatedViewer = ({
 }) => {
   return (
     <Canvas
-      camera={{ position: [0, 2, 3] }}
+      camera={{ position: [5, 2, 8] }}
       style={{ height: height, width: width }}
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} />
       <AnimatedModel url={`/${modelName}`} />
-      <OrbitControls enableZoom={false} enableRotate={false} />
+      <OrbitControls enableRotate={false} />
     </Canvas>
   );
 };
