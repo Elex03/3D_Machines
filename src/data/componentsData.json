@@ -66,12 +66,16 @@
   {
     "id": "Mouse o raton",
     "description": "Dispositivo de entrada que permite interactuar con la interfaz gráfica del sistema.",
-    "link": "https://es.wikipedia.org/wiki/Mouse"
+    "image": "https://thumbs.dreamstime.com/b/conectores-do-painel-io-traseiro-fechados-motherboard-computador-fechado-da-rede-usb-e-conex%C3%A3o-de-%C3%A1udio-182359562.jpg",
+    "link": "https://es.wikipedia.org/wiki/Mouse",
+    "youtube": "https://www.youtube.com/embed/wkPxJ4vaiSE?si=tWHibKtACPcs2m4_"
   },
   {
     "id": "Teclado",
     "description": "Dispositivo de entrada utilizado para escribir y ejecutar comandos.",
-    "link": "https://es.wikipedia.org/wiki/Teclado_(inform%C3%A1tica)"
+    "image": "https://thumbs.dreamstime.com/b/conectores-do-painel-io-traseiro-fechados-motherboard-computador-fechado-da-rede-usb-e-conex%C3%A3o-de-%C3%A1udio-182359562.jpg", 
+    "link": "https://es.wikipedia.org/wiki/Teclado_(inform%C3%A1tica)",
+    "youtube": "https://www.youtube.com/embed/wkPxJ4vaiSE?si=tWHibKtACPcs2m4_"
   },
   {
     "id": "Tarjeta de audio",
@@ -97,11 +101,13 @@
   {
     "id": "Puerto Paralelo",
     "description": "Conector antiguo utilizado principalmente para impresoras.",
-    "image": "https://4.bp.blogspot.com/-MWYDzIFMRAw/TtVrBcXH2LI/AAAAAAAAADg/6D9Cw59TApc/s1600/conector_de_puerto_paralelo_2.jpg"    
+    "image": "https://4.bp.blogspot.com/-MWYDzIFMRAw/TtVrBcXH2LI/AAAAAAAAADg/6D9Cw59TApc/s1600/conector_de_puerto_paralelo_2.jpg",
+    "link": "https://www.lifeder.com/puerto-paralelo/",
+    "youtube": "https://www.youtube.com/embed/kbg3xr33NS0?si=gtIfPfgrYdgI6LWF"
   },
   {
     "id": "VGA",
-    "description": "Puerto para conectar monitores mediante señales analógicas.",
+    "description": "La luz VGA en la placa madre indica que el puerto VGA de tu equipo está activado y listo para usarse. El puerto VGA (Video Graphics Array) es un estándar de conexión que permite enviar señales de video analógicas desde la placa base a un monitor o pantalla. Este puerto se utiliza comúnmente para conectar monitores y proyectores a la computadora.",
     "image": "https://adcod.com/wp-content/uploads/2022/10/why-is-vga-still-used-1024x768.jpg",
     "link": "https://es.wikipedia.org/wiki/Video_Graphics_Array",
     "youtube": "https://www.youtube.com/embed/tiAmVUg5sSI?si=mFmLjIlEDIpkUmf0"
