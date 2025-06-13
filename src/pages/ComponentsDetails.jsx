@@ -51,7 +51,7 @@ export const ComponentsDetails = () => {
       </div>
       <div style={{ display: "flex", width: "800px", height: '500px'}}>
         <InfoPanel />
-        <ModelAnimatedViewer modelName="earth_cartoon.glb" dimesions={{width: '500px'}}/>
+        <ModelAnimatedViewer modelName="cat1.glb" dimesions={{width: '500px'}}/>
       </div>
     </Layout>
   );

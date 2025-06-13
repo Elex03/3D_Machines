@@ -28,10 +28,11 @@ export const Navigation = () => {
         <img
           src={logo}
           style={{
-            width: "90px",
-            height: "90px",
+            width: "180px",
+            height: "180px",
             position: "absolute",
             left: "6rem",
+            marginTop: '50px'
           }}
         />
         <div
@@ -80,16 +81,7 @@ export const Navigation = () => {
                 Aprendiendo
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/recomendaciones"
-                className={({ isActive }) =>
-                  isActive ? "nav-active" : "nav-not-active"
-                }
-              >
-                Recomendaciones
-              </NavLink>
-            </li>
+          
           </ul>
         </div>
       </nav>
@@ -98,7 +90,6 @@ export const Navigation = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/conocer' element={<Conocer />} />
         <Route path='/aprendiendo' element={<ComponentsLearning />} />
-        <Route path='/recomendaciones' element={<h1>Tongo</h1>} />
         <Route path="/tarjetamadre" element={<ComponentsDetails />} />
 
       </Routes>
