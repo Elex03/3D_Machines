@@ -2,16 +2,28 @@ import { useGLTF } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
+import { useFrame } from "@react-three/fiber";
+
 export function AnimatedModel({ url }) {
   const group = useRef();
   const { scene, animations } = useGLTF(url);
   const [mixers, setMixers] = useState([]);
   const [currentClip, setCurrentClip] = useState(null);
 
+  useFrame((state, delta) => {
+    if (group.current) {
+      group.current.rotation.y += 0.5 * delta;
+    }
+    mixers.forEach(({ mixer }) => mixer.update(delta)); // también puedes actualizar mixers aquí
+  });
+
   useEffect(() => {
     if (!animations || animations.length === 0) return;
 
-    console.log("Animaciones cargadas:", animations.map(a => a.name));
+    console.log(
+      "Animaciones cargadas:",
+      animations.map((a) => a.name)
+    );
 
     const skinnedMeshes = [];
     const skeletonMap = new Map();
@@ -26,8 +38,8 @@ export function AnimatedModel({ url }) {
     });
 
     // Escoger animación base
-    let baseClip = animations.find(a => a.name === "Chat1.001");
-    if (!baseClip) baseClip = animations.find(a => a.name === "Chat1");
+    let baseClip = animations.find((a) => a.name === "Chat1.001");
+    if (!baseClip) baseClip = animations.find((a) => a.name === "Chat1");
     if (!baseClip) baseClip = animations[0];
 
     console.log("Animación base seleccionada:", baseClip.name);

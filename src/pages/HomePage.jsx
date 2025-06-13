@@ -123,7 +123,7 @@ export const HomePage = () => {
           Transformamos tu mundo digital, de adentro hacia afuera.
         </h2>
 
-        <ModelAnimatedViewer modelName={"bmo.glb"} dimesions={{width: '200px', height: '400px'}} />
+        <ModelAnimatedViewer modelName={"earth_cartoon.glb"} dimesions={{width: '400px', height: '400px'}} />
       </section>
 
       {/* Sección 2 */}
