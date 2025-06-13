@@ -7,18 +7,18 @@ import { labels } from "../constants/constants";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
-
-function ModelViewer  ({modelName = "model.glb", })  {
+function ModelViewer({ modelName = "model.glb", labels = false }) {
   return (
     <Canvas camera={{ position: [10, 3, 4] }} style={{}}>
       <ambientLight />
       <directionalLight position={[5, 5, 5]} />
-      <ModelWithLabels modelName={modelName} />
+
+      <ModelWithLabels modelName={modelName} isLabels={labels} />
       <OrbitControls />
     </Canvas>
   );
-};
-function ModelWithLabels({ modelName }) {
+}
+function ModelWithLabels({ modelName, isLabels }) {
   const { scene } = useGLTF(`/${modelName}`);
   const modelGroupRef = useRef(); // Este grupo contendrá modelo + etiquetas
   const { camera } = useThree();
@@ -50,27 +50,31 @@ function ModelWithLabels({ modelName }) {
   return (
     <group ref={modelGroupRef}>
       <primitive object={scene} scale={1} />
-
-      {labels.map(({ id, label, labelPosition, target }) => (
-        <group key={id}>
-          <Line points={[labelPosition, target]} color="white" lineWidth={2} />
-          <Html position={labelPosition} center>
-            <div
-              onClick={() => handleZoomToTarget(target, label)}
-              style={{
-                background: "rgba(255,255,255,0.8)",
-                padding: "4px 8px",
-                borderRadius: "4px",
-                fontSize: "0.8rem",
-                color: "#000",
-                cursor: "pointer",
-              }}
-            >
-              {label}
-            </div>
-          </Html>
-        </group>
-      ))}
+      {isLabels &&
+        labels.map(({ id, label, labelPosition, target }) => (
+          <group key={id}>
+            <Line
+              points={[labelPosition, target]}
+              color="white"
+              lineWidth={2}
+            />
+            <Html position={labelPosition} center>
+              <div
+                onClick={() => handleZoomToTarget(target, label)}
+                style={{
+                  background: "rgba(255,255,255,0.8)",
+                  padding: "4px 8px",
+                  borderRadius: "4px",
+                  fontSize: "0.8rem",
+                  color: "#000",
+                  cursor: "pointer",
+                }}
+              >
+                {label}
+              </div>
+            </Html>
+          </group>
+        ))}
     </group>
   );
 }
